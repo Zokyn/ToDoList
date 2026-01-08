@@ -1,6 +1,4 @@
-import { useRef, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState } from "react";
 import "./App.scss";
 import ToDoItem, { ToDo } from "./components/ToDoItem";
 import AddToDo from "./components/AddToDo";
