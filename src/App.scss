@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  
 }
 #note-panel {
   margin: auto;
@@ -11,6 +10,7 @@
   border: white 1px solid;
   border-radius: 16px;
   min-height: 486px;
+  min-width: 480px;
 }
 
 .to-do-list {
@@ -21,20 +21,47 @@
 .to-do-item {
   display: flex;
   flex-direction: row;
-  &>* {
-    cursor:pointer ;
+    border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  
+  &, & > * {
+    cursor: pointer;
   }
-}
+  &.checked {
+    color: grey;
+  }
+  &.checked > span,
+  &.checked > input {
+    text-decoration: line-through;
+  }
+  &.checked, &.checked>* {
+    cursor: default;
+  }
+  & > input[type=text] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    flex-grow: 1;
 
-.to-do-item.checked,
-.to-do-item.checked>* {
-  cursor: default;
-}
+    &:not(:disabled):hover {
+      border-bottom: grey 1px solid;
+    }
+    &:focus {
+      border-bottom: grey 1px solid;
 
-.to-do-item.checked>span {
-  text-decoration: line-through;
-}
-
-.to-do-item.new-one {
-  background-color: transparent;
+    }
+    &:hover, &:focus {
+      transition: border 0.5s;
+    }
+  }
 }

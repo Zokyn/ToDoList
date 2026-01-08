@@ -2,9 +2,9 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.scss";
+import ToDoItem from "./components/ToDoItem";
 
 function App() {
-  const [checked, setChecked] = useState(false);
   const [date] = useState(
     new Date().toLocaleDateString("pt-BR", {
       day: "2-digit",
@@ -16,34 +16,15 @@ function App() {
       <h1>{date}</h1>
       <>
         <span>Afazeres de hoje</span>
+        <hr />
         <div className="to-do-list">
-          <button
-            className={`to-do-item ${checked && "checked"}`}
-            onClick={() => setChecked((checked) => !checked)}
-          >
-            <input type="checkbox" checked={checked} />
-            <span>Tirar o Lixo</span>
-          </button>
-          <button
-            className={`to-do-item new-one`}
-            onClick={() => setChecked((checked) => !checked)}
-          >
+          <button className={`to-do-item new-one`} onClick={() => {}}>
             <input type="checkbox" checked={false} />
-            <span>Novo item</span>
+            <input type="text" value="Adicionar Item" />
           </button>
+          <ToDoItem />
         </div>
       </>
-      <p>
-        Edit <code>src/App.tsx</code> and save to test HMR
-        <div>
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-      </p>
     </div>
   );
 }
