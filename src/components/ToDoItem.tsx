@@ -1,13 +1,5 @@
 import { useState } from "react";
 
-export interface IToDo {
-  id: string;
-  text: string;
-  done: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
 export class ToDo {
   id: number;
   text: string;
