@@ -21,7 +21,7 @@
 .to-do-item {
   display: flex;
   flex-direction: row;
-    border-radius: 8px;
+  border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -45,14 +45,15 @@
   & > input[type=text] {
     margin: 0;
     padding: 0;
-    border: none;
+    border: transparent 1px solid;
     outline: none;
     background-color: transparent;
     color: inherit;
     font-size: inherit;
     font-family: inherit;
     flex-grow: 1;
-
+  }
+  &:not(.add-to-do) > input[type=text] {
     &:not(:disabled):hover {
       border-bottom: grey 1px solid;
     }
@@ -63,5 +64,8 @@
     &:hover, &:focus {
       transition: border 0.5s;
     }
+  }
+  &.add-to-do {
+    border:  white solid 1px;
   }
 }

@@ -1,9 +1,14 @@
 import { useState } from "react";
 
-export default function ToDoItem() {
+export interface ToDoItemProps {
+  task: string;
+  checked: boolean;
+}
+
+export default function ToDoItem(props: ToDoItemProps) {
   const [checked, setChecked] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [text, setText] = useState("Tirar o lixo");
+  const [text, setText] = useState(props.task);
+
   return (
     <button className={`to-do-item ${checked && "checked"}`}>
       <input

@@ -1,16 +1,22 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.scss";
 import ToDoItem from "./components/ToDoItem";
+import AddToDo from "./components/AddToDo";
+
+const localeDateString = new Date().toLocaleDateString("pt-BR", {
+  day: "2-digit",
+  month: "2-digit",
+});
 
 function App() {
-  const [date] = useState(
-    new Date().toLocaleDateString("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-    })
-  );
+  const [list, setList] = useState<string[]>([]);
+
+  function addItem() {
+    setList((prevList) => [...prevList, ""]);
+  }
+  const [date] = useState(localeDateString);
   return (
     <div id="note-panel">
       <h1>{date}</h1>
@@ -18,11 +24,10 @@ function App() {
         <span>Afazeres de hoje</span>
         <hr />
         <div className="to-do-list">
-          <button className={`to-do-item new-one`} onClick={() => {}}>
-            <input type="checkbox" checked={false} />
-            <input type="text" value="Adicionar Item" />
-          </button>
-          <ToDoItem />
+          {list.map((item) => (
+            <ToDoItem task={item} checked={false} />
+          ))}
+          <AddToDo onClick={addItem} />
         </div>
       </>
     </div>
