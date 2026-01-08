@@ -3,3 +3,5 @@
 Uma aplicação exemplo usando React + TypeScript + Vite
 
 ![Screenshot da aplicação](public/images/print.png)
+
+[Acesse a aplicação online](https://loquacious-puffpuff-843f07.netlify.app)
