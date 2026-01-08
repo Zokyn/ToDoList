@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.scss";
-import ToDoItem from "./components/ToDoItem";
+import ToDoItem, { ToDo } from "./components/ToDoItem";
 import AddToDo from "./components/AddToDo";
 
 const localeDateString = new Date().toLocaleDateString("pt-BR", {
@@ -11,10 +11,14 @@ const localeDateString = new Date().toLocaleDateString("pt-BR", {
 });
 
 function App() {
-  const [list, setList] = useState<string[]>([]);
+  const [list, setList] = useState<ToDo[]>([]);
 
   function addItem() {
-    setList((prevList) => [...prevList, ""]);
+    setList((prevList) => [...prevList, new ToDo(prevList.length, "")]);
+  }
+  function removeItem(index: number) {
+    const newList = list.filter((item) => item.id != index);
+    setList(newList);
   }
   const [date] = useState(localeDateString);
   return (
@@ -25,7 +29,7 @@ function App() {
         <hr />
         <div className="to-do-list">
           {list.map((item) => (
-            <ToDoItem task={item} checked={false} />
+            <ToDoItem toDo={item} onClose={() => removeItem(item.id)} />
           ))}
           <AddToDo onClick={addItem} />
         </div>

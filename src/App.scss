@@ -34,10 +34,14 @@
   }
   &.checked {
     color: grey;
-  }
-  &.checked > span,
-  &.checked > input {
-    text-decoration: line-through;
+    
+    & > span,
+    & > input {
+      text-decoration: line-through;
+    }
+    & > button {
+      display: none;
+    }
   }
   &.checked, &.checked>* {
     cursor: default;
@@ -65,7 +69,21 @@
       transition: border 0.5s;
     }
   }
-  &.add-to-do {
-    border:  white solid 1px;
+  & > span#id {
+    display: none;
+    position: absolute;
+    font-size: 0.65em;
+  }
+  & > button.close-button {
+    border: transparent;
+    background-color: transparent;
+    text-align: center;
+    align-content: center;
+    border-radius: 4px;
+    &:hover {
+      color: #969696d5;
+
+      background-color: #ffffff17;
+    }
   }
 }
