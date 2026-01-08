@@ -1,0 +1,26 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  
+}
+#note-panel {
+  margin: auto;
+  padding: 1em;
+  border: white 1px solid;
+  border-radius: 16px;
+}
+
+.to-do-item>* {
+  cursor:pointer ;
+}
+
+.to-do-item.checked,
+.to-do-item.checked>* {
+  cursor: default;
+}
+
+.to-do-item.checked>span {
+  text-decoration: line-through;
+}
